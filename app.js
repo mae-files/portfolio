@@ -21,6 +21,8 @@
   };
   const labelVar = cat => `--label: var(${LABEL[cat] || '--ink'})`;
   const driveThumb = (id, w = 480) => `https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
+  // A reel can set its own cover image ("thumb" in data.js) when Drive's thumbnail is unusable
+  const thumbFor = (it, w) => it.thumb || driveThumb(it.id, w);
   const byId = Object.fromEntries(P.items.filter(i => i.id).map(i => [i.id, i]));
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -116,7 +118,7 @@
   const deckCards = topReels.map((it, k) => h('button', {
       class: 'dcard', style: labelVar(it.cat), 'aria-label': `${it.heroType}: ${it.title}. Play`,
       onclick: e => { if (Math.abs(moved) > 8) { e.preventDefault(); return; } k === cur ? openPlayer(topReels, k) : go(k); } },
-    thumbImg(driveThumb(it.id, 640), it.title),
+    thumbImg(thumbFor(it, 640), it.title),
     h('span', { class: 'dcard-info' },
       h('span', { class: 'dcard-type' }, it.heroType),
       h('span', { class: 'dcard-title' }, it.title),
@@ -136,7 +138,7 @@
       c.classList.toggle('front', d === 0);
     });
     $('#deckCount').textContent = `${cur + 1} / ${n}`;
-    $('#deckBg').style.backgroundImage = `url("${driveThumb(topReels[cur].id, 640)}")`;
+    $('#deckBg').style.backgroundImage = `url("${thumbFor(topReels[cur], 640)}")`;
   }
   function go(k) { cur = (k + deckCards.length) % deckCards.length; dragX = 0; layout(); restart(); }
   function restart() { clearInterval(auto); if (!reduceMotion && !paused) auto = setInterval(() => go(cur + 1), 3200); }
@@ -170,7 +172,7 @@
     return h('li', { class: 'card', style: `${labelVar(item.cat)}; animation-delay: ${Math.min(i, 12) * 25}ms` },
       h('button', { onclick: () => openPlayer(items, i), 'aria-label': `Play ${item.title}` },
         h('div', { class: 'thumb' },
-          thumbImg(item.type === 'shot' ? item.src : driveThumb(item.id), item.title),
+          thumbImg(item.type === 'shot' ? item.src : thumbFor(item), item.title),
           curCat === MOST ? h('span', { class: 'rank' }, `#${i + 1}`) : null,
           item.views ? h('span', { class: 'views' }, h('strong', { 'data-views': item.views }, item.views), h('span', {}, 'views')) : null),
         h('p', { class: 'card-title' }, item.title),
@@ -229,7 +231,7 @@
       const it = byId[ad.id];
       return h('li', { class: 'perf', style: labelVar(it.cat) },
         h('button', { class: 'perf-video', onclick: () => openPlayer(perfItems, k), 'aria-label': `Play ${it.title}` },
-          h('div', { class: 'thumb' }, thumbImg(driveThumb(it.id), it.title), h('span', { class: 'perf-play', 'aria-hidden': 'true' }))),
+          h('div', { class: 'thumb' }, thumbImg(thumbFor(it), it.title), h('span', { class: 'perf-play', 'aria-hidden': 'true' }))),
         h('div', { class: 'perf-body' },
           perf.tag ? h('p', { class: 'perf-tag' }, perf.tag) : null,
           h('p', { class: 'perf-lead' }, h('strong', { 'data-count': ad.lead.value }, ad.lead.value), h('span', {}, ad.lead.label)),

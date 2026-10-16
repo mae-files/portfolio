@@ -153,7 +153,8 @@ window.PORTFOLIO = {
    "title": "Podcast Quick Questions Part 2",
    "group": "reels",
    "cat": "DTC Ads",
-   "type": "drive"
+   "type": "drive",
+   "thumb": "cover-podcast-quick-questions.jpg"
   },
   {
    "id": "19ODcrvrKWSXDOFP0K-ZnG2Ab5WnNiiYi",
@@ -450,8 +451,7 @@ window.PORTFOLIO = {
    "title": "Jollibee Content",
    "group": "reels",
    "cat": "Social Media Trends",
-   "type": "drive",
-   "views": "13.5K"
+   "type": "drive"
   },
   {
    "id": "1LbuiPS_tTJ3kbpbKmOI7laRP9-bESdOp",
@@ -916,8 +916,7 @@ window.PORTFOLIO = {
    "title": "Australia Day Hook #4",
    "group": "reels",
    "cat": "Food",
-   "type": "drive",
-   "views": "306K"
+   "type": "drive"
   },
   {
    "id": "1g2-OOxIcrC5VSTFOfWGACbo9iH5Gg3sy",
@@ -1016,6 +1015,30 @@ window.PORTFOLIO = {
    "group": "reels",
    "cat": "Food",
    "type": "drive"
+  },
+  {
+   "id": "10oITtJGe2nqSRiSMVCJaO9FYC9_AKver",
+   "title": "Australia Day Bo Com",
+   "group": "reels",
+   "cat": "Food",
+   "type": "drive",
+   "views": "490K"
+  },
+  {
+   "id": "1iJrVuaMPWPp-T0JmkucIvRRBolF8lbXz",
+   "title": "Promo Video",
+   "group": "reels",
+   "cat": "Food",
+   "type": "drive",
+   "views": "72.2K"
+  },
+  {
+   "id": "16W6dgPgUxc1XYfR9Tg7ZmaECuaOEs5EE",
+   "title": "$23 Steak and Fries",
+   "group": "reels",
+   "cat": "Food",
+   "type": "drive",
+   "views": "47.1K"
   },
   {
    "id": "1uTGDa-TPLCviLTnkksyUFJ2nAFDTlc9_",
