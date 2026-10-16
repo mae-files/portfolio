@@ -2,6 +2,81 @@
 // To show a view count on a reel, add  "views": "120K"  to that reel.
 window.PORTFOLIO = {
  "name": "Mae Joson",
+ "performance": {
+  "tag": "Top ad · Q3 2026",
+  "summary": [
+   {
+    "value": "1.93M",
+    "label": "impressions across 4 ads"
+   },
+   {
+    "value": "2.9x",
+    "label": "conversion rate vs. account average"
+   },
+   {
+    "value": "2.1x",
+    "label": "click-through rate vs. account average"
+   },
+   {
+    "value": "4",
+    "label": "top-performing ads in Q3 2026"
+   }
+  ],
+  "ads": [
+   {
+    "id": "1ca6T3PDVJ6y2CvEUyauRwVhFcir-KCnH",
+    "lead": {
+     "value": "2.1x",
+     "label": "the account's click-through rate"
+    },
+    "note": "Got more than twice as many viewers to click through, and earned more back per dollar than the average ad.",
+    "wins": [
+     "1.3x account ROAS",
+     "2.2x scroll-stop rate",
+     "2x thumbstop rate"
+    ]
+   },
+   {
+    "id": "1_5DZJaJy1gAMKWvMqOg_2GPJNEa6pPpI",
+    "lead": {
+     "value": "2.9x",
+     "label": "the account's conversion rate"
+    },
+    "note": "Turned viewers into buyers at nearly three times the account rate.",
+    "wins": [
+     "2x add-to-carts",
+     "1.5x hold rate",
+     "1.4x thumbstop rate"
+    ]
+   },
+   {
+    "id": "1adS9O_vRPjLlmaqkon5aZPsMgpw9TjHi",
+    "lead": {
+     "value": "1M",
+     "label": "impressions"
+    },
+    "note": "Scaled to a million impressions and drew buyers beyond the core golf audience.",
+    "wins": [
+     "1.5x thumbstop rate",
+     "1.25x conversion rate",
+     "1.2x scroll-stop rate"
+    ]
+   },
+   {
+    "id": "19ODcrvrKWSXDOFP0K-ZnG2Ab5WnNiiYi",
+    "lead": {
+     "value": "2x",
+     "label": "the account's scroll-stop rate"
+    },
+    "note": "Held attention past six seconds at twice the account average.",
+    "wins": [
+     "1.8x thumbstop rate",
+     "1.4x conversion rate",
+     "656.5K impressions"
+    ]
+   }
+  ]
+ },
  "series": {
   "title": "Matchbox Series",
   "year": 2022,
@@ -23,44 +98,32 @@ window.PORTFOLIO = {
    "type": "Podcast"
   },
   {
-   "id": "1P0nTRE2th5hXWwfbgsHVeDEDRQCNgv2g",
-   "type": "Food"
-  },
-  {
    "id": "144pAVHLN3swfv996mzbdVkruvi6-m_4Z",
    "type": "Ad"
-  },
-  {
-   "id": "1ZXBVf-63cwn7cBZm1bT71j_M7GC7cp-B",
-   "type": "Travel"
   },
   {
    "id": "15YzSYs6hc6tGKCC-RzGGmX-TJZDIfUfs",
    "type": "UGC"
   },
   {
-   "id": "1GClrGut01POymUesqi7XDazmyJLikHZ0",
-   "type": "Unboxing"
-  },
-  {
    "id": "1WlhcKt4dHCyhdIiMPzRa7S5JtKhxcgoI",
    "type": "Food"
+  },
+  {
+   "id": "1ZXBVf-63cwn7cBZm1bT71j_M7GC7cp-B",
+   "type": "Travel"
+  },
+  {
+   "id": "1GClrGut01POymUesqi7XDazmyJLikHZ0",
+   "type": "Unboxing"
   },
   {
    "id": "1-eybtjOov1LkO3vvhdI2YpA0MgFKpPy1",
    "type": "Event"
   },
   {
-   "id": "1pIT8doueG0C0eiUGD1SGkUnEmSJvliyL",
-   "type": "Food"
-  },
-  {
    "id": "1qshoPh_auJzCSPC5gy0XU5kylu1UTFmc",
    "type": "Trend"
-  },
-  {
-   "id": "16lt1I1RZEh0JNUcZv8yp6qw9mVD-_85x",
-   "type": "Food"
   }
  ],
  "items": [
@@ -1125,22 +1188,6 @@ window.PORTFOLIO = {
    "type": "image"
   },
   {
-   "id": "19CvB05QMevvwWQXFo1ADpSdr78J6u3fE",
-   "title": "Ad design 15, Oct 8",
-   "group": "graphics",
-   "cat": "Graphic Design",
-   "sub": "AI-generated ads",
-   "type": "image"
-  },
-  {
-   "id": "18bBXTslLjgqqtI6u-9EX1jWLHn8mD4cz",
-   "title": "Ad design 15b, Oct 8",
-   "group": "graphics",
-   "cat": "Graphic Design",
-   "sub": "AI-generated ads",
-   "type": "image"
-  },
-  {
    "id": "11brghihN2URh-lfGNgrRq2tUeGE5P1r6",
    "title": "Ad design 15c, Oct 8",
    "group": "graphics",
@@ -1189,14 +1236,6 @@ window.PORTFOLIO = {
    "type": "image"
   },
   {
-   "id": "1tF7897VLBOJNBHtKI-ti_0wqKVFsQYyf",
-   "title": "Ad design 30, Oct 8",
-   "group": "graphics",
-   "cat": "Graphic Design",
-   "sub": "AI-generated ads",
-   "type": "image"
-  },
-  {
    "id": "1VPU-fXRzL1MrhXJW4mHCAsoINGf3tqfw",
    "title": "Ad design 30b, Oct 8",
    "group": "graphics",
@@ -1223,14 +1262,6 @@ window.PORTFOLIO = {
   {
    "id": "1pCdhoRdQIzNlnJf4h2fQhSmD5_DYut8h",
    "title": "Ad design 34b, Oct 8",
-   "group": "graphics",
-   "cat": "Graphic Design",
-   "sub": "AI-generated ads",
-   "type": "image"
-  },
-  {
-   "id": "1_BMw9i4r5YEdi4VoOxMicRO03ZvJw_F2",
-   "title": "Ad design 35, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
    "sub": "AI-generated ads",
@@ -1285,14 +1316,6 @@ window.PORTFOLIO = {
    "type": "image"
   },
   {
-   "id": "1ynZafBSFJ6-69huWDE-_HvpixMgHk2Mv",
-   "title": "Ad design 47, Oct 8",
-   "group": "graphics",
-   "cat": "Graphic Design",
-   "sub": "AI-generated ads",
-   "type": "image"
-  },
-  {
    "id": "1i5L2eprdBqB0fx7bYsFYf66usvEYCwOe",
    "title": "Ad design 47b, Oct 8",
    "group": "graphics",
@@ -1311,14 +1334,6 @@ window.PORTFOLIO = {
   {
    "id": "1uYMvYnKZfsze0vgte48pMXGnF3rN4j9L",
    "title": "Ad design 48b, Oct 8",
-   "group": "graphics",
-   "cat": "Graphic Design",
-   "sub": "AI-generated ads",
-   "type": "image"
-  },
-  {
-   "id": "1JzjF7lCvMn2Q1zMBZmUZzPdVY2byl1kw",
-   "title": "Ad design 49, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
    "sub": "AI-generated ads",

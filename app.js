@@ -31,6 +31,24 @@
     return img;
   }
 
+  // Count a figure like "306K", "2.29x" or "9.5%" up from zero
+  function countUp(el, text, ms = 1100) {
+    const m = String(text).match(/^([\d.]+)(.*)$/);
+    if (!m || reduceMotion) { el.textContent = text; return; }
+    const end = parseFloat(m[1]), dec = (m[1].split('.')[1] || '').length, suffix = m[2];
+    const t0 = performance.now();
+    const step = now => {
+      const p = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = (end * e).toFixed(dec) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const onVisible = (el, fn) => {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.disconnect(); fn(); } }), { threshold: .12 });
+    io.observe(el);
+  };
+
   /* ---------------- Player ---------------- */
   const player = $('#player'), stage = $('#playerStage');
   let list = [], idx = 0, lastFocus = null;
@@ -88,70 +106,62 @@
     if (Math.abs(dx) > 60) step(dx < 0 ? 1 : -1);
   });
 
-  /* ---------------- Hero: monitor + timeline ---------------- */
-  const heroItems = P.hero.map(c => ({ ...byId[c.id], heroType: c.type })).filter(x => x.id);
-  const track = $('#track'), playhead = $('#playhead'), frame = $('#monitorFrame'), bg = $('#monitorBg');
-  const CLIP_SECONDS = 4, FPS = 25;
-  heroItems.forEach((it, i) => {
-    const thumbs = h('span', { class: 'clip-thumbs', 'aria-hidden': 'true' },
-      Array.from({ length: 5 }, () => h('img', { src: driveThumb(it.id, 200), alt: '', loading: 'lazy', referrerpolicy: 'no-referrer', onerror: e => e.target.remove() })));
-    track.append(h('button', {
-      class: 'clip', role: 'listitem', style: `${labelVar(it.cat)}; animation-delay: ${0.9 + i * 0.07}s`,
-      'aria-label': `${it.heroType}: ${it.title}`, onclick: () => openPlayer(heroItems, i)
-    }, thumbs, h('span', { class: 'clip-name' }, it.heroType)));
-  });
-
-  let active = -1;
-  function setActive(i) {
-    if (i === active) return; active = i;
-    const it = heroItems[i];
-    [...track.children].forEach((c, k) => c.classList.toggle('active', k === i));
-    frame.classList.add('swap');
-    const next = new Image(); next.referrerPolicy = 'no-referrer';
-    next.onload = next.onerror = () => {
-      if (next.naturalWidth) { frame.src = next.src; frame.classList.remove('swap'); bg.style.backgroundImage = `url("${next.src}")`; }
-    };
-    next.src = driveThumb(it.id, 720);
-    $('#monitorTitle').textContent = `${it.heroType} · ${it.title}`;
-  }
-  $('#monitorPlay').onclick = () => openPlayer(heroItems, Math.max(active, 0));
-
-  const total = heroItems.length * CLIP_SECONDS * 1000;
-  let t0 = null, elapsed = 0, paused = false, raf = 0;
-  const pad = n => String(n).padStart(2, '0');
-  function tick(now) {
-    if (t0 == null) t0 = now - elapsed;
-    elapsed = (now - t0) % total;
-    const p = elapsed / total;
-    playhead.style.transform = `translateX(${p * track.clientWidth}px)`;
-    setActive(Math.min(heroItems.length - 1, Math.floor(p * heroItems.length)));
-    const secs = elapsed / 1000;
-    $('#timecode').textContent = `00:00:${pad(Math.floor(secs))}:${pad(Math.floor((secs % 1) * FPS))}`;
-    raf = requestAnimationFrame(tick);
-  }
-  function heroPause(on) {
-    paused = on; cancelAnimationFrame(raf); t0 = null;
-    if (!on && !reduceMotion && !document.hidden) raf = requestAnimationFrame(tick);
-  }
-  setActive(0);
-  if (reduceMotion) {
-    // Static: no sweep. Hovering a clip shows it on the monitor instead.
-    [...track.children].forEach((c, i) => c.addEventListener('mouseenter', () => setActive(i)));
-  } else {
-    setTimeout(() => !paused && heroPause(false), 1300); // start after the gate opens
-    // Hovering a clip parks the playhead on it
-    [...track.children].forEach((c, i) => {
-      c.addEventListener('mouseenter', () => { heroPause(true); elapsed = (i + 0.5) * CLIP_SECONDS * 1000; playhead.style.transform = `translateX(${(i + .5) / heroItems.length * track.clientWidth}px)`; setActive(i); });
-      c.addEventListener('mouseleave', () => player.hidden && heroPause(false));
+  /* ---------------- Hero: swipeable showreel deck ---------------- */
+  const viewNum = v => parseFloat(v) * (/k/i.test(v) ? 1e3 : /m/i.test(v) ? 1e6 : 1);
+  // Showreel: one reel of each type, picked in data.js (P.hero)
+  const byIdHero = Object.fromEntries(P.items.filter(i => i.id).map(i => [i.id, i]));
+  const topReels = P.hero.map(c => ({ ...byIdHero[c.id], heroType: c.type })).filter(x => x.id);
+  const deckEl = $('#deck'), cardsEl = $('#deckCards');
+  let cur = 0, dragX = 0, auto = 0, paused = false;
+  const deckCards = topReels.map((it, k) => h('button', {
+      class: 'dcard', style: labelVar(it.cat), 'aria-label': `${it.heroType}: ${it.title}. Play`,
+      onclick: e => { if (Math.abs(moved) > 8) { e.preventDefault(); return; } k === cur ? openPlayer(topReels, k) : go(k); } },
+    thumbImg(driveThumb(it.id, 640), it.title),
+    h('span', { class: 'dcard-info' },
+      h('span', { class: 'dcard-type' }, it.heroType),
+      h('span', { class: 'dcard-title' }, it.title),
+      it.views ? h('span', { class: 'dcard-views' }, h('strong', {}, it.views), ' views') : null)));
+  cardsEl.append(...deckCards);
+  function layout() {
+    const n = deckCards.length, w = cardsEl.clientWidth || 1;
+    deckCards.forEach((c, k) => {
+      let d = k - cur; if (d > n / 2) d -= n; if (d < -n / 2) d += n;
+      const off = d + dragX / Math.max(220, w * .3);
+      const a = Math.abs(off);
+      c.style.transform = `translateX(calc(-50% + ${off * 62}%)) scale(${Math.max(.55, 1 - a * .16)}) rotate(${off * 3}deg)`;
+      c.style.opacity = a > 2.6 ? 0 : 1 - a * .22;
+      c.style.zIndex = 20 - Math.round(a * 2);
+      c.style.pointerEvents = a > 2.6 ? 'none' : '';
+      c.tabIndex = d === 0 ? 0 : -1;
+      c.classList.toggle('front', d === 0);
     });
+    $('#deckCount').textContent = `${cur + 1} / ${n}`;
+    $('#deckBg').style.backgroundImage = `url("${driveThumb(topReels[cur].id, 640)}")`;
   }
+  function go(k) { cur = (k + deckCards.length) % deckCards.length; dragX = 0; layout(); restart(); }
+  function restart() { clearInterval(auto); if (!reduceMotion && !paused) auto = setInterval(() => go(cur + 1), 3200); }
+  function heroPause(on) { paused = on; on ? clearInterval(auto) : restart(); }
+  $('#deckPrev').onclick = () => go(cur - 1);
+  $('#deckNext').onclick = () => go(cur + 1);
+  deckEl.addEventListener('mouseenter', () => heroPause(true));
+  deckEl.addEventListener('mouseleave', () => player.hidden && heroPause(false));
+  deckEl.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(cur + 1); if (e.key === 'ArrowLeft') go(cur - 1); });
+  // drag / swipe
+  let startX = null, moved = 0;
+  cardsEl.addEventListener('pointerdown', e => { startX = e.clientX; moved = 0; cardsEl.classList.add('dragging'); });
+  addEventListener('pointermove', e => { if (startX == null) return; moved = e.clientX - startX; dragX = moved; layout(); });
+  addEventListener('pointerup', () => {
+    if (startX == null) return; startX = null; cardsEl.classList.remove('dragging');
+    if (moved < -50) go(cur + 1); else if (moved > 50) go(cur - 1); else { dragX = 0; layout(); }
+  });
+  addEventListener('resize', layout);
   document.addEventListener('visibilitychange', () => player.hidden && heroPause(document.hidden));
+  layout(); restart();
 
   /* ---------------- Reels: bins + grid ---------------- */
   const reels = P.items.filter(i => i.group === 'reels');
   const cats = [...new Set(reels.map(r => r.cat))];
-  const MOST = 'Most viewed';
-  const viewNum = v => parseFloat(v) * (/k/i.test(v) ? 1e3 : /m/i.test(v) ? 1e6 : 1);
+  const MOST = 'TOP VIEWS';
   const mostViewed = reels.filter(r => r.views).sort((a, b) => viewNum(b.views) - viewNum(a.views));
   let curCat = 'All', curSub = null, expanded = false;
   const PAGE = 18;
@@ -161,7 +171,8 @@
       h('button', { onclick: () => openPlayer(items, i), 'aria-label': `Play ${item.title}` },
         h('div', { class: 'thumb' },
           thumbImg(item.type === 'shot' ? item.src : driveThumb(item.id), item.title),
-          item.views ? h('span', { class: 'badge' }, `${item.views} views`) : null),
+          curCat === MOST ? h('span', { class: 'rank' }, `#${i + 1}`) : null,
+          item.views ? h('span', { class: 'views' }, h('strong', { 'data-views': item.views }, item.views), h('span', {}, 'views')) : null),
         h('p', { class: 'card-title' }, item.title),
         h('p', { class: 'card-sub' }, [curCat === 'All' || curCat === MOST ? item.cat : null, item.sub].filter(Boolean).join(' / ') || null)));
   }
@@ -169,7 +180,10 @@
     let items = curCat === 'All' ? reels : curCat === MOST ? mostViewed : reels.filter(r => r.cat === curCat);
     if (curSub) items = items.filter(r => r.sub === curSub);
     const shown = expanded ? items : items.slice(0, PAGE);
-    $('#grid').replaceChildren(...shown.map((it, i) => card(it, i, items)));
+    const grid = $('#grid');
+    grid.classList.toggle('ranked', curCat === MOST);
+    grid.replaceChildren(...shown.map((it, i) => card(it, i, items)));
+    if (curCat === MOST) grid.querySelectorAll('[data-views]').forEach(el => countUp(el, el.dataset.views));
     const more = $('#showMore');
     more.hidden = items.length <= PAGE || expanded;
     more.textContent = `Show all ${items.length} reels`;
@@ -200,6 +214,33 @@
     stat.onclick = () => { curCat = MOST; curSub = null; expanded = false; renderBins(); renderGrid(); };
   }
   renderBins(); renderGrid();
+
+  /* ---------------- Ad results ---------------- */
+  const perf = P.performance;
+  if (perf) {
+    const sumEls = perf.summary.map(s => {
+      const dd = h('dd', {}, s.value);
+      return [h('div', { class: 'sum' }, dd, h('dt', {}, s.label)), dd, s.value];
+    });
+    $('#perfSummary').replaceChildren(...sumEls.map(x => x[0]));
+    onVisible($('#perfSummary'), () => sumEls.forEach(([, dd, v]) => countUp(dd, v, 1400)));
+    const perfItems = perf.ads.map(a => byId[a.id]);
+    $('#perfList').replaceChildren(...perf.ads.map((ad, k) => {
+      const it = byId[ad.id];
+      return h('li', { class: 'perf', style: labelVar(it.cat) },
+        h('button', { class: 'perf-video', onclick: () => openPlayer(perfItems, k), 'aria-label': `Play ${it.title}` },
+          h('div', { class: 'thumb' }, thumbImg(driveThumb(it.id), it.title), h('span', { class: 'perf-play', 'aria-hidden': 'true' }))),
+        h('div', { class: 'perf-body' },
+          perf.tag ? h('p', { class: 'perf-tag' }, perf.tag) : null,
+          h('p', { class: 'perf-lead' }, h('strong', { 'data-count': ad.lead.value }, ad.lead.value), h('span', {}, ad.lead.label)),
+          h('h3', { class: 'perf-title' }, it.title),
+          h('p', { class: 'perf-note' }, ad.note),
+          h('ul', { class: 'wins', 'aria-label': 'Other results' }, ...ad.wins.map(w => h('li', {}, w)))));
+    }));
+    document.querySelectorAll('.perf').forEach(card => onVisible(card, () => {
+      const s = card.querySelector('[data-count]'); countUp(s, s.dataset.count);
+    }));
+  }
 
   /* ---------------- Films ---------------- */
   const films = P.items.filter(i => i.group === 'films');
@@ -265,7 +306,7 @@
   $('#footLinks').replaceChildren(...[
     P.contact?.email ? h('a', { href: `mailto:${P.contact.email}` }, P.contact.email) : null,
     P.contact?.phone ? h('a', { href: `tel:${P.contact.phone.replace(/\s/g, '')}` }, P.contact.phone) : null,
-    resumeUrl ? h('a', { href: resumeUrl, target: '_blank', rel: 'noopener' }, 'View résumé') : null,
+    resumeUrl ? h('a', { href: resumeUrl, target: '_blank', rel: 'noopener' }, 'View resume') : null,
     h('a', { href: P.series.channel, target: '_blank', rel: 'noopener' }, 'YouTube')
   ].filter(Boolean));
   // Links like /#design: jump to the section once the content above it has been built

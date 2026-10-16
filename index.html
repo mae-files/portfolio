@@ -17,12 +17,13 @@
   <a class="mark" href="#">Mae Joson</a>
   <nav aria-label="Sections">
     <a href="#work">Reels</a>
+    <a href="#results">Results</a>
     <a href="#films">Films</a>
     <a href="#series">Series</a>
     <a href="#design">Design</a>
     <a href="#more">Brand films</a>
   </nav>
-  <a class="resume" id="resumeLink" href="#" target="_blank" rel="noopener">Résumé</a>
+  <a class="resume" id="resumeLink" href="#" target="_blank" rel="noopener">Resume</a>
 </header>
 
 <main>
@@ -34,22 +35,14 @@
       <a class="stat" id="heroStat" href="#work" hidden></a>
     </div>
 
-    <div class="monitor" id="monitor">
-      <div class="monitor-bg" id="monitorBg"></div>
-      <img class="monitor-frame" id="monitorFrame" alt="">
-      <button class="monitor-play" id="monitorPlay" aria-label="Play this clip">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </button>
-      <div class="monitor-meta">
-        <span class="tc" id="timecode">00:00:00:00</span>
-        <span id="monitorTitle"></span>
+    <div class="deck" id="deck" aria-roledescription="carousel" aria-label="Showreel">
+      <div class="deck-bg" id="deckBg" aria-hidden="true"></div>
+      <div class="deck-cards" id="deckCards"></div>
+      <div class="deck-nav">
+        <button class="icon-btn" id="deckPrev" aria-label="Previous reel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <span class="deck-count" id="deckCount" aria-live="polite"></span>
+        <button class="icon-btn" id="deckNext" aria-label="Next reel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
-    </div>
-
-    <div class="timeline" id="timeline" role="list" aria-label="Showreel clips">
-      <div class="ruler" aria-hidden="true"></div>
-      <div class="track" id="track"></div>
-      <div class="playhead" id="playhead" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -63,6 +56,17 @@
     <div class="subbins" id="subbins"></div>
     <ul class="grid" id="grid"></ul>
     <button class="show-more" id="showMore" hidden></button>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results" id="results">
+    <div class="section-head">
+      <h2>Ad results</h2>
+      <p>Paid social ads I edited that ranked among a DTC golf brand's top performers on Meta in Q3 2026. Results are shown against the ad account's average.</p>
+    </div>
+    <dl class="summary" id="perfSummary"></dl>
+    <p class="legend"><strong>x</strong> = times the account average</p>
+    <ol class="perf-list" id="perfList"></ol>
   </section>
 
   <!-- FILMS -->
