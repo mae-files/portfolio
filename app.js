@@ -268,6 +268,11 @@
     resumeUrl ? h('a', { href: resumeUrl, target: '_blank', rel: 'noopener' }, 'View résumé') : null,
     h('a', { href: P.series.channel, target: '_blank', rel: 'noopener' }, 'YouTube')
   ].filter(Boolean));
+  // Links like /#design: jump to the section once the content above it has been built
+  if (location.hash.length > 1) {
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) requestAnimationFrame(() => target.scrollIntoView({ behavior: 'instant', block: 'start' }));
+  }
   const top = $('.top');
   addEventListener('scroll', () => top.classList.toggle('scrolled', scrollY > 10), { passive: true });
 })();

@@ -86,14 +86,14 @@ h1 {
 }
 .roles { margin: 0; max-width: 30ch; color: var(--muted); font-size: 18px; }
 .stat {
-  display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin-top: 22px; width: fit-content;
   font-size: 15px; color: var(--muted); text-decoration: none;
   border-bottom: 1px solid var(--line); padding-bottom: 3px;
 }
 .stat[hidden] { display: none; }
-.stat strong { color: var(--ink); font: 800 22px/1 var(--display); letter-spacing: -.02em; }
+.stat strong { color: var(--ink); font: 800 22px/1 var(--display); letter-spacing: -.02em; white-space: nowrap; }
 .stat::before {
-  content: ""; width: 16px; height: 16px; flex: none;
+  content: ""; width: 16px; height: 16px; flex: none; align-self: center;
   background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0322b' stroke-width='2.4'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
 }
 .stat:hover { color: var(--ink); border-bottom-color: var(--ink); }
@@ -355,3 +355,4 @@ h2 { font: 800 clamp(34px, 4.6vw, 60px)/1 var(--display); letter-spacing: -.03em
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
   html { scroll-behavior: auto; }
 }
+section[id] { scroll-margin-top: 72px; }
