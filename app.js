@@ -15,7 +15,7 @@
 
   // Clip label colour for each bin
   const LABEL = {
-    'Social Media Trends': '--c-trends', 'Educational Talks': '--c-talks', 'Travel': '--c-travel',
+    'DTC Ads': '--c-dtc', 'Social Media Trends': '--c-trends', 'Educational Talks': '--c-talks', 'Travel': '--c-travel',
     'Unboxing': '--c-unbox', 'Events': '--c-events', 'Food': '--c-food', 'Short Films': '--c-films',
     'Music & Brand Films': '--c-brand', 'LED Loops': '--c-led', 'Graphic Design': '--c-gfx'
   };
@@ -41,12 +41,13 @@
       case 'youtube': return h('iframe', { src: `https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&rel=0`, allow: 'autoplay; encrypted-media; fullscreen; picture-in-picture', allowfullscreen: true, title: item.title });
       case 'facebook': return h('iframe', { src: `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(item.url)}&show_text=false&autoplay=true&width=1280`, allow: 'autoplay; encrypted-media; fullscreen; picture-in-picture', allowfullscreen: true, title: item.title });
       case 'image': return h('img', { src: driveThumb(item.id, 2000), alt: item.title, referrerpolicy: 'no-referrer' });
+      case 'shot': return h('img', { src: item.src, alt: `${item.title}, ${item.views} views` });
     }
   }
   function show() {
     const item = list[idx];
     const vertical = item.group === 'reels';
-    stage.className = 'player-stage' + (vertical ? ' vertical' : '');
+    stage.className = 'player-stage' + (vertical ? ' vertical' : item.type === 'image' ? ' portrait' : '');
     stage.replaceChildren(embedFor(item));
     player.style.cssText = labelVar(item.cat);
     $('#playerTitle').textContent = item.title + (item.year ? ` (${item.year})` : '');
@@ -149,6 +150,9 @@
   /* ---------------- Reels: bins + grid ---------------- */
   const reels = P.items.filter(i => i.group === 'reels');
   const cats = [...new Set(reels.map(r => r.cat))];
+  const MOST = 'Most viewed';
+  const viewNum = v => parseFloat(v) * (/k/i.test(v) ? 1e3 : /m/i.test(v) ? 1e6 : 1);
+  const mostViewed = reels.filter(r => r.views).sort((a, b) => viewNum(b.views) - viewNum(a.views));
   let curCat = 'All', curSub = null, expanded = false;
   const PAGE = 18;
 
@@ -156,13 +160,13 @@
     return h('li', { class: 'card', style: `${labelVar(item.cat)}; animation-delay: ${Math.min(i, 12) * 25}ms` },
       h('button', { onclick: () => openPlayer(items, i), 'aria-label': `Play ${item.title}` },
         h('div', { class: 'thumb' },
-          thumbImg(driveThumb(item.id), item.title),
+          thumbImg(item.type === 'shot' ? item.src : driveThumb(item.id), item.title),
           item.views ? h('span', { class: 'badge' }, `${item.views} views`) : null),
         h('p', { class: 'card-title' }, item.title),
-        h('p', { class: 'card-sub' }, [curCat === 'All' ? item.cat : null, item.sub].filter(Boolean).join(' / ') || null)));
+        h('p', { class: 'card-sub' }, [curCat === 'All' || curCat === MOST ? item.cat : null, item.sub].filter(Boolean).join(' / ') || null)));
   }
   function renderGrid() {
-    let items = curCat === 'All' ? reels : reels.filter(r => r.cat === curCat);
+    let items = curCat === 'All' ? reels : curCat === MOST ? mostViewed : reels.filter(r => r.cat === curCat);
     if (curSub) items = items.filter(r => r.sub === curSub);
     const shown = expanded ? items : items.slice(0, PAGE);
     $('#grid').replaceChildren(...shown.map((it, i) => card(it, i, items)));
@@ -176,14 +180,25 @@
         onclick: () => { curSub = s === 'All' ? null : s; expanded = false; renderGrid(); } }, s)));
   }
   function renderBins() {
-    $('#bins').replaceChildren(...['All', ...cats].map(c => {
-      const n = c === 'All' ? reels.length : reels.filter(r => r.cat === c).length;
-      return h('button', { class: 'bin', role: 'tab', 'aria-selected': String(c === curCat), style: c === 'All' ? null : labelVar(c),
+    $('#bins').replaceChildren(...['All', ...(mostViewed.length ? [MOST] : []), ...cats].map(c => {
+      const plain = c === 'All' || c === MOST;
+      const n = c === 'All' ? reels.length : c === MOST ? mostViewed.length : reels.filter(r => r.cat === c).length;
+      return h('button', { class: 'bin' + (c === MOST ? ' bin-views' : ''), role: 'tab', 'aria-selected': String(c === curCat), style: plain ? null : labelVar(c),
         onclick: () => { curCat = c; curSub = null; expanded = false; renderBins(); renderGrid(); } },
-        c === 'All' ? null : h('span', { class: 'sw', 'aria-hidden': 'true' }), c, h('span', { class: 'n' }, n));
+        c === MOST ? h('span', { class: 'eye', 'aria-hidden': 'true' }) : plain ? null : h('span', { class: 'sw', 'aria-hidden': 'true' }),
+        c, h('span', { class: 'n' }, n));
     }));
   }
   $('#showMore').onclick = () => { expanded = true; renderGrid(); };
+  // Hero stat: combined views of the reels that have counts
+  if (mostViewed.length) {
+    const total = mostViewed.reduce((s, r) => s + viewNum(r.views), 0);
+    const fmt = n => n >= 1e6 ? (Math.floor(n / 1e5) / 10) + 'M' : Math.round(n / 1e3) + 'K';
+    const stat = $('#heroStat');
+    stat.replaceChildren(h('strong', {}, fmt(total) + '+ views'), ` across my top ${mostViewed.length} reels`);
+    stat.hidden = false;
+    stat.onclick = () => { curCat = MOST; curSub = null; expanded = false; renderBins(); renderGrid(); };
+  }
   renderBins(); renderGrid();
 
   /* ---------------- Films ---------------- */
@@ -221,7 +236,28 @@
         h('p', { class: 'card-title' }, it.title)))));
   };
   wide('LED Loops', '#ledList');
-  wide('Graphic Design', '#gfxList');
+
+  /* ---------------- Design gallery ---------------- */
+  const gfx = P.items.filter(i => i.group === 'graphics');
+  const gSubs = [...new Set(gfx.map(g => g.sub).filter(Boolean))];
+  let gSub = null, gExpanded = false;
+  const GPAGE = 12;
+  function renderGallery() {
+    const items = gSub ? gfx.filter(g => g.sub === gSub) : gfx;
+    const shown = gExpanded ? items : items.slice(0, GPAGE);
+    $('#gallery').replaceChildren(...shown.map((it, i) => h('li', { class: 'card', style: `${labelVar(it.cat)}; animation-delay: ${Math.min(i, 12) * 25}ms` },
+      h('button', { onclick: () => openPlayer(items, i), 'aria-label': `Open ${it.title}` },
+        h('div', { class: 'thumb tile' }, thumbImg(driveThumb(it.id, 600), it.title))))));
+    $('#gfxMore').hidden = items.length <= GPAGE || gExpanded;
+    $('#gfxMore').textContent = `Show all ${items.length} designs`;
+    $('#gfxBins').replaceChildren(...['All', ...gSubs].map(s => {
+      const n = s === 'All' ? gfx.length : gfx.filter(g => g.sub === s).length;
+      return h('button', { class: 'bin', role: 'tab', 'aria-selected': String((gSub || 'All') === s),
+        onclick: () => { gSub = s === 'All' ? null : s; gExpanded = false; renderGallery(); } }, s, h('span', { class: 'n' }, n));
+    }));
+  }
+  $('#gfxMore').onclick = () => { gExpanded = true; renderGallery(); };
+  renderGallery();
 
   /* ---------------- Footer + header ---------------- */
   const resumeUrl = P.resume ? `https://drive.google.com/file/d/${P.resume}/view` : null;

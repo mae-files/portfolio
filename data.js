@@ -1,32 +1,317 @@
-// Portfolio content — edit this file to add or change work.
+// Portfolio content. Edit this file to add or change work.
+// To show a view count on a reel, add  "views": "120K"  to that reel.
 window.PORTFOLIO = {
  "name": "Mae Joson",
- "roles": [
-  "Writer",
-  "Editor",
-  "Director"
- ],
  "series": {
   "title": "Matchbox Series",
   "year": 2022,
-  "credit": "Written & directed",
   "playlist": "UU3a5Yb0iryyp61B6iVYM0-A",
   "channel": "https://www.youtube.com/c/MatchboxSeries/featured"
  },
  "resume": "1NKov6LMdblBapH87wHoDQRS-QTC34YgI",
- "credits": {
-  "Social Media Trends": "Shot & edited",
-  "Educational Talks": "Written, directed, shot & edited",
-  "Travel": "Edited",
-  "Unboxing": "Shot & edited",
-  "Events": "Shot & edited",
-  "Food": "Edited",
-  "LED Loops": "Director & DP",
-  "Graphic Design": "Design",
-  "Short Films": "Written, directed, shot & edited",
-  "Music & Brand Films": "Director & DP"
+ "contact": {
+  "email": "maejoson101@gmail.com",
+  "phone": "+63 951 558 1480"
  },
+ "hero": [
+  {
+   "id": "1A7ItOlmnANW95DC5YBR9Vv7XApaD-Osl",
+   "type": "Talking head"
+  },
+  {
+   "id": "1mZYiBIJsxbZXwtpcDY7LpNKtSLHYsYot",
+   "type": "Podcast"
+  },
+  {
+   "id": "1P0nTRE2th5hXWwfbgsHVeDEDRQCNgv2g",
+   "type": "Food"
+  },
+  {
+   "id": "144pAVHLN3swfv996mzbdVkruvi6-m_4Z",
+   "type": "Ad"
+  },
+  {
+   "id": "1ZXBVf-63cwn7cBZm1bT71j_M7GC7cp-B",
+   "type": "Travel"
+  },
+  {
+   "id": "15YzSYs6hc6tGKCC-RzGGmX-TJZDIfUfs",
+   "type": "UGC"
+  },
+  {
+   "id": "1GClrGut01POymUesqi7XDazmyJLikHZ0",
+   "type": "Unboxing"
+  },
+  {
+   "id": "1WlhcKt4dHCyhdIiMPzRa7S5JtKhxcgoI",
+   "type": "Food"
+  },
+  {
+   "id": "1-eybtjOov1LkO3vvhdI2YpA0MgFKpPy1",
+   "type": "Event"
+  },
+  {
+   "id": "1pIT8doueG0C0eiUGD1SGkUnEmSJvliyL",
+   "type": "Food"
+  },
+  {
+   "id": "1qshoPh_auJzCSPC5gy0XU5kylu1UTFmc",
+   "type": "Trend"
+  },
+  {
+   "id": "16lt1I1RZEh0JNUcZv8yp6qw9mVD-_85x",
+   "type": "Food"
+  }
+ ],
  "items": [
+  {
+   "id": "1lI3YAWbPlqLLJi5Ph8JetRiGcFpuQRVD",
+   "title": "This Is Gah Mae Script",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1oH8N2EKKgYmfVxwD7ZfyLjT08CfKHTY7",
+   "title": "Husband Wife Therapy FDC",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1asFELOTYKgrBeXQM49tGUDnT3xHBsfUs",
+   "title": "FDC Bobby And Paul Therapy Bonding Style 2",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1mZYiBIJsxbZXwtpcDY7LpNKtSLHYsYot",
+   "title": "Podcast Quick Questions Part 2",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "19ODcrvrKWSXDOFP0K-ZnG2Ab5WnNiiYi",
+   "title": "Meta Glasses Pure Query",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive",
+   "views": "86.3K"
+  },
+  {
+   "id": "1WKnFTZy8o11hV184ZgL5JauyBE4KilRy",
+   "title": "Bobby Mixtape",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1yUUj0gHYlDLj41aBeachONkL1hR8CU-Y",
+   "title": "Amanda FDC",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1-SP307oaRUbtu18Cj9Q9Y8nx0zDUH1nk",
+   "title": "Script 12 Eddie Mp MOF",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1EPHwbc8oeZuknvTiUuTmDqCCW5Ye0TD9",
+   "title": "Script 13 Joyce",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "15YzSYs6hc6tGKCC-RzGGmX-TJZDIfUfs",
+   "title": "Apartment MOF 2 Curiosity",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1PWJ0GOIm0N8PAwcp5vw6f7-T7VCiG-_L",
+   "title": "La Apartment 3",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1LL06lFvfKwXrQRrhZv3i2p5wMScyvMUG",
+   "title": "Colton MOF 4",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1ca6T3PDVJ6y2CvEUyauRwVhFcir-KCnH",
+   "title": "Peter 4th Of July MOF",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1Q58WSdLEUcTk3-BB7fqvECVFRhZqciU6",
+   "title": "Hit It 250 With Friend",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1FuYhqFtm8JKXf2C_QGsDaUJ3kAVX5Bb7",
+   "title": "Hit It Green 20 Dollars",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1hYJv9bFBJYl9FUL6lvxtCMrli2nkdvzM",
+   "title": "Colton Madison MOF 3",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1xImowIT_Gu3EhCyABPJTxgEjL2mPcN_T",
+   "title": "Living Room MOF",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1Wb5njEfEG5TLPFkBfNanhiAxOrm2h4rB",
+   "title": "Heal Our Marriage",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1SUio1WMgsN-t2qGzF6cgGiSl1BSrEPlq",
+   "title": "Jonathan MOF Summer",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1adS9O_vRPjLlmaqkon5aZPsMgpw9TjHi",
+   "title": "Before And After Concept",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1_5DZJaJy1gAMKWvMqOg_2GPJNEa6pPpI",
+   "title": "Gah Favorite",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "17eaJhj7VOZ9feBf9B5juYitzP6k7UjYR",
+   "title": "Jonathan MOF",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1awtwK7oDSzSTXHjxHz_BaW4mIm_FUnwt",
+   "title": "New Couple Sv Rb",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "144pAVHLN3swfv996mzbdVkruvi6-m_4Z",
+   "title": "Compilation Ad Bet",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "12FucrQzMDZoXXxJWL26gFUHpaTvJb4B1",
+   "title": "Taylor Brother Range Testimonial",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1Nq9LYZ_l16g7qS-0BnR8osKvZPdk2X9W",
+   "title": "Owen Range Testimonial",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1qR3865hFzPCYZDEcockyGJCK8sEYAXIn",
+   "title": "Range Metaglasses Playthrough",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1eeavO9FzzVmFGiVb9pu2wQwa-CWFdG0r",
+   "title": "Testimonial Mix App Focused",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1GrLmGYJQOjzR_YiZMsUbId3AxQx03GLw",
+   "title": "Golf Tourney Simulator Group 1",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1IjL8gcU_m04_90GQ2Xo17OZjHQ8QFWB4",
+   "title": "Golf Tourney Simulator Group 2",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1pZ-iiIySQkflUwkTvt9pZH2_DY24tFql",
+   "title": "Golf Tourney Simulator Group 7",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1cOvpp3oLzn1SIszw7vQYYWtJE5xRITUe",
+   "title": "Customer Testimonial",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "16tOqWOPJkt1MpdwSvLCfqXe-Y5WkS0kh",
+   "title": "Testimonial Hyped Pinned Post",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
+   "id": "1Bz2ht998AbWd0kwJIlpowrJvEfOQ3WXG",
+   "title": "Husband Thinks I'm Spending Thousands",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive",
+   "views": "172.8K"
+  },
+  {
+   "id": "1nr7kPt0aoFSRGHJU3Jmws1Uys-U-XXue",
+   "title": "Gah Teaser Style",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive",
+   "views": "319K"
+  },
   {
    "id": "16crOzdkY_R-RFRO66HYG_bWiqokLCMkI",
    "title": "2024 HK APT",
@@ -102,7 +387,8 @@ window.PORTFOLIO = {
    "title": "Jollibee Content",
    "group": "reels",
    "cat": "Social Media Trends",
-   "type": "drive"
+   "type": "drive",
+   "views": "13.5K"
   },
   {
    "id": "1LbuiPS_tTJ3kbpbKmOI7laRP9-bESdOp",
@@ -170,7 +456,8 @@ window.PORTFOLIO = {
    "group": "reels",
    "cat": "Educational Talks",
    "sub": "Sales",
-   "type": "drive"
+   "type": "drive",
+   "views": "38.2K"
   },
   {
    "id": "1NzFsUWZwM7a99h8TBNTQ9QHJAlBWnevu",
@@ -226,7 +513,8 @@ window.PORTFOLIO = {
    "group": "reels",
    "cat": "Educational Talks",
    "sub": "Financial Wellness",
-   "type": "drive"
+   "type": "drive",
+   "views": "60K"
   },
   {
    "id": "1S2x31Udt-W5KywdYQO7TVPGlLtAGrfM4",
@@ -479,7 +767,8 @@ window.PORTFOLIO = {
    "group": "reels",
    "cat": "Events",
    "sub": "Event Highlights",
-   "type": "drive"
+   "type": "drive",
+   "views": "91.7K"
   },
   {
    "id": "1L91h7xkvut0FoBd-FvWyonqwp4m570oJ",
@@ -549,7 +838,8 @@ window.PORTFOLIO = {
    "title": "3rd Elegant Video",
    "group": "reels",
    "cat": "Food",
-   "type": "drive"
+   "type": "drive",
+   "views": "24.7K"
   },
   {
    "id": "1DUlhkSiqJvL1JyQVCeS7p945oLN_aEJj",
@@ -563,7 +853,8 @@ window.PORTFOLIO = {
    "title": "Australia Day Hook #4",
    "group": "reels",
    "cat": "Food",
-   "type": "drive"
+   "type": "drive",
+   "views": "306K"
   },
   {
    "id": "1g2-OOxIcrC5VSTFOfWGACbo9iH5Gg3sy",
@@ -710,6 +1001,7 @@ window.PORTFOLIO = {
    "title": "Disney Compiled",
    "group": "graphics",
    "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
    "type": "image"
   },
   {
@@ -717,6 +1009,343 @@ window.PORTFOLIO = {
    "title": "New Travel Compilation",
    "group": "graphics",
    "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
+   "id": "1ytyevgEm5SHhCeQHTeVwP3wvThQX-wgV",
+   "title": "Best Seller Arc",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
+   "id": "1Y5qObM8sJQpHwB3QTpzRTngqg61cGZ6g",
+   "title": "Founder Fired, Black Friday",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
+   "id": "1SWSTqK9M2dIzd34DyoxSkYqOgMV-sKJM",
+   "title": "Ad design 2, Oct 7",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
+   "id": "1q_7eFjaiK1dzkATU_IpINZxssCMLTEvv",
+   "title": "Ad design 4, Oct 15",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
+   "id": "110LHt6PbtIrLOV6pU-45aBRDDp7moHZL",
+   "title": "Ad design 9, Oct 15",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
+   "id": "1f_702tVUpKfqfdmDfGDHDx1cIp5Y6N-R",
+   "title": "Ad design 10, Oct 15",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
+   "id": "1gDNwPDGmHoPFWTRcHG_qvTGhLYI2OIyV",
+   "title": "Ad design 13, Oct 15",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
+   "id": "19Gt-bFxV3O_uCA8hQCHt34y4tiAFgtmB",
+   "title": "Ad design 1, Oct 7",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "16uWUj5ksJWnjXQFM7GFEQW67U5BBxPd6",
+   "title": "Ad design 2, Oct 7",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1IpPWxUmH-gBTNWWvjlMbBbbzdTgTaci7",
+   "title": "Ad design 1, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "17zvHJc9jVyKHiDQlfQ_UU7T68cGvSUwn",
+   "title": "Ad design 2, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1bbeUVyEUOkKLK21AApwAlSgXpLu6u8PU",
+   "title": "Ad design 3, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1ALxa25hHC1m2kmEAlk-SP6RJa8hIC58T",
+   "title": "Ad design 4, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1petVr6KUumAsGhmW63b7r0mBLYa7lNjK",
+   "title": "Ad design 9, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "19CvB05QMevvwWQXFo1ADpSdr78J6u3fE",
+   "title": "Ad design 15, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "18bBXTslLjgqqtI6u-9EX1jWLHn8mD4cz",
+   "title": "Ad design 15b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "11brghihN2URh-lfGNgrRq2tUeGE5P1r6",
+   "title": "Ad design 15c, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1yRkmXR_o9yzClE6cDBZeLUTyW_VizKR2",
+   "title": "Ad design 19, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1W4zmgzZa9EghUAPMlpJdNB5gAqQPdmMo",
+   "title": "Ad design 22, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "17GI8Zcz2uDkNX-JAdw666DzA83bAk4GY",
+   "title": "Ad design 25, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1QqUfkGiUPQgGNpRkhzsJI5w77uU6FaAN",
+   "title": "Ad design 28, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1Lh4rX7iZSwCw5vQceOBwblz2ef0kmeBY",
+   "title": "Ad design 29, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1tF7897VLBOJNBHtKI-ti_0wqKVFsQYyf",
+   "title": "Ad design 30, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1VPU-fXRzL1MrhXJW4mHCAsoINGf3tqfw",
+   "title": "Ad design 30b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1QhyaLKSZtbuvYL-jyY5AtxBxDOQXeCYW",
+   "title": "Ad design 32, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1ssqk1NHqaFEX3yXH4LS820B7mNwaC83Q",
+   "title": "Ad design 33, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1pCdhoRdQIzNlnJf4h2fQhSmD5_DYut8h",
+   "title": "Ad design 34b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1_BMw9i4r5YEdi4VoOxMicRO03ZvJw_F2",
+   "title": "Ad design 35, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1YeqN_yXlZ10hu8LdNJ2RdVkbVHzdP1mN",
+   "title": "Ad design 35b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1AQyFZGTOUm-4Ovrvr-Jv8MAOJPnO-Xnz",
+   "title": "Ad design 36, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1tQbKCcqutkteqI8pblHJPMg2S-IkukXN",
+   "title": "Ad design 37, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1L0WfNmLPLns6t9LNtFADxLje0Tk0JotB",
+   "title": "Ad design 43b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1SdvIpJbD6gJLxEdfRs0zekwkqmTV55Sg",
+   "title": "Ad design 44b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1DLhdQzhGD87ZX5v8KBUEAFnUQYVEKj52",
+   "title": "Ad design 45b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1ynZafBSFJ6-69huWDE-_HvpixMgHk2Mv",
+   "title": "Ad design 47, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1i5L2eprdBqB0fx7bYsFYf66usvEYCwOe",
+   "title": "Ad design 47b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1gv8nwtey_hAF2y6TcqCHjWAomqdYhUcx",
+   "title": "Ad design 48, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1uYMvYnKZfsze0vgte48pMXGnF3rN4j9L",
+   "title": "Ad design 48b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1JzjF7lCvMn2Q1zMBZmUZzPdVY2byl1kw",
+   "title": "Ad design 49, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1_Ou8LjFtQZLrQ7vTeu7PqtOUbMj3klk9",
+   "title": "Ad design 49b, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1j2zvh1dCDivmH1IA85LJetVhJvxRUEEP",
+   "title": "Ad design 50, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
+   "type": "image"
+  },
+  {
+   "id": "1uZplGnlWeiyzxwq8fGKW4Itiq4wsM2L8",
+   "title": "Ad design 51, Oct 8",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "AI-generated ads",
    "type": "image"
   },
   {
@@ -792,16 +1421,3 @@ window.PORTFOLIO = {
   }
  ]
 };
-
-// Hero timeline: six different types of work, in play order.
-window.PORTFOLIO.hero = [
-  { id: "1NzFsUWZwM7a99h8TBNTQ9QHJAlBWnevu", type: "Talking head" },
-  { id: "1P0nTRE2th5hXWwfbgsHVeDEDRQCNgv2g", type: "Food" },
-  { id: "1ZsRHLbieEiC8yUFalwWR3B29yoGVfGNN", type: "Travel" },
-  { id: "13YyNOoWx5bXPXzsWHcFNUFRxn3DerWWl", type: "Unboxing" },
-  { id: "1-eybtjOov1LkO3vvhdI2YpA0MgFKpPy1", type: "Event" },
-  { id: "1qshoPh_auJzCSPC5gy0XU5kylu1UTFmc", type: "Trend" }
-];
-
-// Contact shown in the footer. Leave email empty to hide it.
-window.PORTFOLIO.contact = { email: "maejoson101@gmail.com", phone: "+63 951 558 1480" };
