@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mae Joson — Writer, Editor, Director</title>
+<meta name="description" content="Video portfolio of Mae Joson: short-form reels, short films, a web series and brand work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#work">Skip to the work</a>
+
+<header class="top">
+  <a class="mark" href="#">Mae Joson</a>
+  <nav aria-label="Sections">
+    <a href="#work">Reels</a>
+    <a href="#films">Films</a>
+    <a href="#series">Series</a>
+    <a href="#more">Brand &amp; design</a>
+  </nav>
+  <a class="resume" id="resumeLink" href="#" target="_blank" rel="noopener">Résumé</a>
+</header>
+
+<main>
+  <!-- HERO: program monitor + edit timeline -->
+  <section class="hero" aria-label="Showreel">
+    <div class="intro">
+      <h1>Mae Joson</h1>
+      <p class="roles">Writer, editor and director. Seven years cutting reels, short films and brand stories that people stop scrolling for.</p>
+    </div>
+
+    <div class="monitor" id="monitor">
+      <div class="monitor-bg" id="monitorBg"></div>
+      <img class="monitor-frame" id="monitorFrame" alt="">
+      <button class="monitor-play" id="monitorPlay" aria-label="Play this clip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="monitor-meta">
+        <span class="tc" id="timecode">00:00:00:00</span>
+        <span id="monitorTitle"></span>
+      </div>
+    </div>
+
+    <div class="timeline" id="timeline" role="list" aria-label="Showreel clips">
+      <div class="ruler" aria-hidden="true"></div>
+      <div class="track" id="track"></div>
+      <div class="playhead" id="playhead" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- REELS -->
+  <section class="work" id="work">
+    <div class="section-head">
+      <h2>Reels</h2>
+      <p>Short-form work for brands, events and creators. Pick a bin to filter.</p>
+    </div>
+    <div class="bins" id="bins" role="tablist" aria-label="Reel categories"></div>
+    <div class="subbins" id="subbins"></div>
+    <ul class="grid" id="grid"></ul>
+    <button class="show-more" id="showMore" hidden></button>
+  </section>
+
+  <!-- FILMS -->
+  <section class="films" id="films">
+    <div class="section-head">
+      <h2>Short films</h2>
+      <p>Written, directed, shot and edited by Mae.</p>
+    </div>
+    <ul class="film-list" id="filmList"></ul>
+  </section>
+
+  <!-- SERIES -->
+  <section class="series" id="series">
+    <div class="section-head">
+      <h2>Matchbox Series</h2>
+      <p>A web series, 2022. Written and directed by Mae.</p>
+    </div>
+    <div class="series-player" id="seriesPlayer">
+      <button class="series-start" id="seriesStart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <span>Play the series</span>
+      </button>
+    </div>
+    <a class="quiet-link" id="seriesChannel" target="_blank" rel="noopener">Open the channel on YouTube</a>
+  </section>
+
+  <!-- MORE -->
+  <section class="more" id="more">
+    <div class="section-head">
+      <h2>Brand films, LED loops and design</h2>
+      <p>Director and director of photography on music and company videos, plus motion loops for event screens.</p>
+    </div>
+    <h3 class="group-title">Music and brand films</h3>
+    <ul class="wide-list" id="brandList"></ul>
+    <h3 class="group-title">LED loops</h3>
+    <ul class="wide-list" id="ledList"></ul>
+    <h3 class="group-title">Graphic design</h3>
+    <ul class="wide-list" id="gfxList"></ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot-line">Have a project that needs an editor?</p>
+  <p class="foot-links" id="footLinks"></p>
+</footer>
+
+<!-- Player -->
+<div class="player" id="player" role="dialog" aria-modal="true" aria-labelledby="playerTitle" hidden>
+  <div class="player-scrim" data-close></div>
+  <div class="player-body">
+    <div class="player-head">
+      <div>
+        <p class="player-cat" id="playerCat"></p>
+        <h2 id="playerTitle"></h2>
+      </div>
+      <button class="icon-btn" data-close aria-label="Close player">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="player-stage" id="playerStage"></div>
+    <div class="player-nav">
+      <button class="icon-btn" id="prevBtn" aria-label="Previous">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <span class="player-count" id="playerCount"></span>
+      <button class="icon-btn" id="nextBtn" aria-label="Next">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
