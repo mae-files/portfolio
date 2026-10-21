@@ -128,6 +128,13 @@ window.PORTFOLIO = {
  ],
  "items": [
   {
+   "id": "1NIVuQV8VBd_prPqHNbz0I5RSzoopui2F",
+   "title": "Scale Up Ad",
+   "group": "reels",
+   "cat": "DTC Ads",
+   "type": "drive"
+  },
+  {
    "id": "1lI3YAWbPlqLLJi5Ph8JetRiGcFpuQRVD",
    "title": "This Is Gah Mae Script",
    "group": "reels",
@@ -1041,6 +1048,27 @@ window.PORTFOLIO = {
    "views": "47.1K"
   },
   {
+   "id": "1JZGbsqsiSqzl-0jGFB_kS7xJrMY5kBYv",
+   "title": "Atlas Every Course",
+   "group": "reels",
+   "cat": "Made by Claude",
+   "type": "drive"
+  },
+  {
+   "id": "1e_EVn3fk9rS2L21K0Ko0FELIOiaWx-jP",
+   "title": "Golf at Home Sells Out",
+   "group": "reels",
+   "cat": "Made by Claude",
+   "type": "drive"
+  },
+  {
+   "id": "1QjLYznTfHT5h3hzve0kdYkHR0EIYU16v",
+   "title": "Founder Explains",
+   "group": "reels",
+   "cat": "Made by Claude",
+   "type": "drive"
+  },
+  {
    "id": "1uTGDa-TPLCviLTnkksyUFJ2nAFDTlc9_",
    "title": "13th Anniv LED",
    "group": "other",
@@ -1155,11 +1183,19 @@ window.PORTFOLIO = {
    "type": "image"
   },
   {
+   "id": "1aRBxyvUGLbjgQbVPBBemsCbJzsMJmE10",
+   "title": "Ad design 1, Oct 20",
+   "group": "graphics",
+   "cat": "Graphic Design",
+   "sub": "Graphic & ad design",
+   "type": "image"
+  },
+  {
    "id": "19Gt-bFxV3O_uCA8hQCHt34y4tiAFgtmB",
    "title": "Ad design 1, Oct 7",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1167,7 +1203,7 @@ window.PORTFOLIO = {
    "title": "Ad design 2, Oct 7",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1175,7 +1211,7 @@ window.PORTFOLIO = {
    "title": "Ad design 1, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1183,7 +1219,7 @@ window.PORTFOLIO = {
    "title": "Ad design 2, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1191,7 +1227,7 @@ window.PORTFOLIO = {
    "title": "Ad design 3, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1199,7 +1235,7 @@ window.PORTFOLIO = {
    "title": "Ad design 4, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1207,7 +1243,7 @@ window.PORTFOLIO = {
    "title": "Ad design 9, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1215,7 +1251,7 @@ window.PORTFOLIO = {
    "title": "Ad design 15c, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1223,7 +1259,7 @@ window.PORTFOLIO = {
    "title": "Ad design 19, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1231,7 +1267,7 @@ window.PORTFOLIO = {
    "title": "Ad design 22, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1239,7 +1275,7 @@ window.PORTFOLIO = {
    "title": "Ad design 25, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1247,7 +1283,7 @@ window.PORTFOLIO = {
    "title": "Ad design 28, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1255,7 +1291,7 @@ window.PORTFOLIO = {
    "title": "Ad design 29, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1263,7 +1299,7 @@ window.PORTFOLIO = {
    "title": "Ad design 30b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1271,7 +1307,7 @@ window.PORTFOLIO = {
    "title": "Ad design 32, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1279,7 +1315,7 @@ window.PORTFOLIO = {
    "title": "Ad design 33, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1287,7 +1323,7 @@ window.PORTFOLIO = {
    "title": "Ad design 34b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1295,7 +1331,7 @@ window.PORTFOLIO = {
    "title": "Ad design 35b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1303,7 +1339,7 @@ window.PORTFOLIO = {
    "title": "Ad design 36, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1311,7 +1347,7 @@ window.PORTFOLIO = {
    "title": "Ad design 37, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1319,7 +1355,7 @@ window.PORTFOLIO = {
    "title": "Ad design 43b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1327,7 +1363,7 @@ window.PORTFOLIO = {
    "title": "Ad design 44b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1335,7 +1371,7 @@ window.PORTFOLIO = {
    "title": "Ad design 45b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1343,15 +1379,7 @@ window.PORTFOLIO = {
    "title": "Ad design 47b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
-   "type": "image"
-  },
-  {
-   "id": "1gv8nwtey_hAF2y6TcqCHjWAomqdYhUcx",
-   "title": "Ad design 48, Oct 8",
-   "group": "graphics",
-   "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1359,7 +1387,7 @@ window.PORTFOLIO = {
    "title": "Ad design 48b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1367,7 +1395,7 @@ window.PORTFOLIO = {
    "title": "Ad design 49b, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1375,7 +1403,7 @@ window.PORTFOLIO = {
    "title": "Ad design 50, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1383,7 +1411,7 @@ window.PORTFOLIO = {
    "title": "Ad design 51, Oct 8",
    "group": "graphics",
    "cat": "Graphic Design",
-   "sub": "AI-generated ads",
+   "sub": "Camouflage Ads",
    "type": "image"
   },
   {
@@ -1457,5 +1485,8 @@ window.PORTFOLIO = {
    "cat": "Music & Brand Films",
    "type": "facebook"
   }
- ]
+ ],
+ "designNotes": {
+  "Camouflage Ads": "image generated"
+ }
 };

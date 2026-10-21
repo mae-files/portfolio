@@ -20,6 +20,7 @@
   --c-brand: #c58be0;
   --c-led: #4fc3e0;
   --c-gfx: #f08f7a;
+  --c-claude: #3fa36b;
 
   --display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
   --body: "Instrument Sans", system-ui, sans-serif;
@@ -199,6 +200,8 @@ h2 { font: 800 clamp(34px, 4.6vw, 60px)/1 var(--display); letter-spacing: -.03em
 }
 .bin .sw { width: 10px; height: 10px; border-radius: 2px; background: var(--label, var(--ink)); }
 .bin .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+.bin .bin-note { font-size: 11px; font-weight: 400; letter-spacing: .02em; text-transform: lowercase; color: var(--muted); font-style: italic; margin-left: -2px; }
+.bin[aria-selected="true"] .bin-note { color: color-mix(in srgb, var(--paper) 65%, transparent); }
 .bin:hover { border-color: var(--ink); }
 .bin[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .bin[aria-selected="true"] .n { color: color-mix(in srgb, var(--paper) 65%, transparent); }

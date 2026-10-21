@@ -17,7 +17,7 @@
   const LABEL = {
     'DTC Ads': '--c-dtc', 'Social Media Trends': '--c-trends', 'Educational Talks': '--c-talks', 'Travel': '--c-travel',
     'Unboxing': '--c-unbox', 'Events': '--c-events', 'Food': '--c-food', 'Short Films': '--c-films',
-    'Music & Brand Films': '--c-brand', 'LED Loops': '--c-led', 'Graphic Design': '--c-gfx'
+    'Music & Brand Films': '--c-brand', 'LED Loops': '--c-led', 'Graphic Design': '--c-gfx', 'Made by Claude': '--c-claude'
   };
   const labelVar = cat => `--label: var(${LABEL[cat] || '--ink'})`;
   const driveThumb = (id, w = 480) => `https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
@@ -296,7 +296,8 @@
     $('#gfxBins').replaceChildren(...['All', ...gSubs].map(s => {
       const n = s === 'All' ? gfx.length : gfx.filter(g => g.sub === s).length;
       return h('button', { class: 'bin', role: 'tab', 'aria-selected': String((gSub || 'All') === s),
-        onclick: () => { gSub = s === 'All' ? null : s; gExpanded = false; renderGallery(); } }, s, h('span', { class: 'n' }, n));
+        onclick: () => { gSub = s === 'All' ? null : s; gExpanded = false; renderGallery(); } }, s,
+        P.designNotes?.[s] ? h('small', { class: 'bin-note' }, P.designNotes[s]) : null, h('span', { class: 'n' }, n));
     }));
   }
   $('#gfxMore').onclick = () => { gExpanded = true; renderGallery(); };
@@ -308,8 +309,7 @@
   $('#footLinks').replaceChildren(...[
     P.contact?.email ? h('a', { href: `mailto:${P.contact.email}` }, P.contact.email) : null,
     P.contact?.phone ? h('a', { href: `tel:${P.contact.phone.replace(/\s/g, '')}` }, P.contact.phone) : null,
-    resumeUrl ? h('a', { href: resumeUrl, target: '_blank', rel: 'noopener' }, 'View resume') : null,
-    h('a', { href: P.series.channel, target: '_blank', rel: 'noopener' }, 'YouTube')
+    resumeUrl ? h('a', { href: resumeUrl, target: '_blank', rel: 'noopener' }, 'View resume') : null
   ].filter(Boolean));
   // Links like /#design: jump to the section once the content above it has been built
   if (location.hash.length > 1) {
